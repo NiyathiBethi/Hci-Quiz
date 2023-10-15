@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <style>
+        .question {
+            color: black; 
+            background-color: yellow;
+    </style>
+    <script>
+        function getResult() {
+            var score = 0;
+            var resultDiv = document.getElementById("result");
+            var questions = document.getElementsByClassName("question");
+            var unanswered = false;
+
+            for (var i = 0; i < questions.length; i++) {
+                var ele = questions[i].querySelector('input[type="radio"]:checked');
+                if (ele) {
+                    if (ele.value === "correct") {
+                        score++;
+                    }
+                } else {
+                    unanswered = true;
+                }
+            }
+
+            if (unanswered) {
+                resultDiv.innerHTML = "Please attempt all questions.";
+            } else {
+                resultDiv.innerHTML = "You scored " + score + " out of 10.";
+            }
+        }
+    </script>
+</head>
+<body>
+   <b><center><h1>Welcome to the Quiz</h1></center></b>
+   <b><center><h2>All questions carry equal marks</h2></center></b>
+
+    <div class="question">
+        <b><p>1. What is the capital of India?</p></b>
+        <input type="radio" name="capital1" value="correct"> New Delhi<br>
+        <input type="radio" name="capital1" value="incorrect"> Bangalore<br>
+        <input type="radio" name="capital1" value="incorrect"> Kolkata<br>
+        <input type="radio" name="capital1" value="incorrect"> Gujarat<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>2.What is the capital of Japan?</p></b>
+        <input type="radio" name="country1" value="incorrect">Paris <br>
+        <input type="radio" name="country1" value="incorrect">Berlin<br>
+        <input type="radio" name="country1" value="correct">Tokyo<br>
+        <input type="radio" name="country1" value="incorrect"> London<br>
+    </div>
+    
+    <div class="question">
+        <b><p>3.In Which Year did Titanic Sink?</p></b>
+        <input type="radio" name="Year1" value="incorrect">1916<br>
+        <input type="radio" name="Year1" value="correct">1912<br>
+        <input type="radio" name="Year1" value="incorrect">1921<br>
+        <input type="radio" name="Year1" value="incorrect"> 1931<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>4. Which Famous Scientist Formulated the Theory of General Relativity?</p></b>
+        <input type="radio" name="scientist1" value="incorrect"> Isaac Newton<br>
+        <input type="radio" name="scientist1" value="incorrect"> Galileo Galilei<br>
+        <input type="radio" name="scientist1" value="incorrect"> Stephen Hawking<br>
+        <input type="radio" name="scientist1" value="correct"> Albert Einstein<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>5. What is the chemical symbol for carbondioxide?</p></b>
+        <input type="radio" name="chemistry1" value="incorrect"> He<br>
+        <input type="radio" name="chemistry1" value="incorrect"> H2O<br>
+        <input type="radio" name="chemistry1" value="incorrect"> O2<br>
+        <input type="radio" name="chemistry1" value="correct"> CO2<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>6. Who Painted the Mona Lisa?</p></b>
+        <input type="radio" name="paint1" value="incorrect"> Pablo Picasso<br>
+        <input type="radio" name="paint1" value="correct"> Leonardo da vinci<br>
+        <input type="radio" name="paint1" value="incorrect">Vincent van Gogh<br>
+        <input type="radio" name="paint1" value="incorrect"> Michelangelo<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>7. What is the National flower of India?</p></b>
+        <input type="radio" name="National1" value="incorrect"> Jasmine<br>
+        <input type="radio" name="National1" value="incorrect"> Sunflower<br>
+        <input type="radio" name="National1" value="incorrect"> Rose<br>
+        <input type="radio" name="National1" value="correct"> Lotus<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>8. Who is the author of the novel"pride and prejudice"?</p></b>
+        <input type="radio" name="author1" value="incorrect"> Charles Dickens<br>
+        <input type="radio" name="author1" value="incorrect">F.Scott Fitzgerald<br>
+        <input type="radio" name="author1" value="correct"> jane Austen<br>
+        <input type="radio" name="author1" value="incorrect"> Emily Bronte<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>9. What is the chemical symbol for gold?</p></b>
+        <input type="radio" name="chemistry2" value="incorrect"> Ag<br>
+        <input type="radio" name="chemistry2" value="correct"> Au<br>
+        <input type="radio" name="chemistry2" value="incorrect"> Fe<br>
+        <input type="radio" name="chemistry2" value="incorrect"> Hg<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>10. What is the largest organ in human body?</p></b>
+        <input type="radio" name="organ2" value="correct"> Skin<br>
+        <input type="radio" name="organ2" value="incorrect">Heart<br>
+        <input type="radio" name="organ2" value="incorrect">Liver<br>
+        <input type="radio" name="organ2" value="incorrect">Heart<br><br>
+    </div>
+
+
+    <input type="button" value="Submit" onclick="getResult()">
+    <input type="button" value="Cancel">
+
+    <div id="result"></div>
+</body>
+</html>
